@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Saloni's Portfolio</title>
+<style>
+/* Reset and font */
+* { margin:0; padding:0; box-sizing:border-box; font-family:"Poppins",sans-serif; }
+body { scroll-behavior: smooth; overflow-x:hidden; }
+
+/* Navigation */
+nav {
+  position:fixed; top:20px; right:40px;
+  display:flex; gap:20px; z-index:1000;
+}
+nav a {
+  text-decoration:none; color:white; background:rgba(0,0,0,0.4);
+  padding:10px 18px; border-radius:20px; transition:0.3s;
+  font-weight:bold;
+}
+nav a:hover { background: turquoise; color:black; transform: scale(1.05); }
+
+/* Section styling */
+section {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  text-align: left;
+  padding: 40px;
+  color: white;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+/* Background gradients + subtle animation */
+#landing { background:black; color:turquoise; display:flex; align-items:center; justify-content:center; font-size:2rem; font-weight:bold; height:100vh; }
+#about { background:linear-gradient(120deg, #0f7c8c, #1c92d2); animation:bgSlide 10s infinite alternate; }
+#education { background:linear-gradient(120deg, #1d4350, #a43931); animation:bgSlide 12s infinite alternate; }
+#hobbies { background:linear-gradient(120deg, #3a1c71, #d76d77, #ffaf7b); animation:bgSlide 14s infinite alternate; }
+
+@keyframes bgSlide {
+  0% { background-position:0% 50%; }
+  50% { background-position:100% 50%; }
+  100% { background-position:0% 50%; }
+}
+
+/* Headings and text */
+h1 { font-size:3rem; margin-bottom:20px; animation:fadeUp 2s ease forwards; }
+h2 { font-size:2rem; margin:15px 0; animation:fadeUp 2s ease forwards; }
+p { font-size:1.2rem; max-width:800px; margin:10px 0; animation:fadeUp 2.5s ease forwards; }
+.quote { font-style:italic; margin:10px 0; font-size:1.2rem; animation:fadeUp 3s ease forwards; }
+
+/* Image styling */
+.photo-img {
+  flex: 1;
+  max-width: 600px;
+  max-height: 60vh;
+  width: auto;
+  border: 3px solid white;
+  border-radius: 20px;
+  object-fit: contain;
+  transition: transform 0.5s, box-shadow 0.5s;
+  margin: 20px;
+}
+.photo-img:hover {
+  transform: scale(1.05) rotate(-1deg);
+  box-shadow: 0 0 25px white;
+}
+.top-heading {
+  position: absolute;
+  top: 20px; /* distance from top of screen */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem; /* big and bold */
+  color: #ffeb3b;
+  font-weight: bold;
+  text-align: center;
+  z-index: 100; /* appear above other content */
+  animation: fadeDown 2s ease forwards;
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translate(-50%, -20px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+
+
+
+/* Text container */
+.text-content {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+  animation: fadeUp 2s ease forwards;
+}
+
+/* Hobbies */
+.hobby-list { display:flex; flex-wrap:wrap; gap:15px; justify-content:flex-start; margin-top:15px; }
+.hobby { background: rgba(0,0,0,0.3); padding:12px 20px; border-radius:30px; font-size:1rem; transition:all 0.3s ease; cursor:pointer; }
+.hobby:hover { background: turquoise; color:black; transform: scale(1.1) rotate(-2deg); }
+.instagram-card {
+  display: flex;
+  align-items: center;
+  background: #E1306C; /* Instagram gradient-like pink */
+  padding: 12px 20px;
+  border-radius: 25px;
+  margin-top: 20px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.instagram-card img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.instagram-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #E1306C;
+}
+
+/* Typewriter landing effect */
+.typewriter { border-right: 3px solid turquoise; white-space: nowrap; overflow: hidden; width:0; animation: typing 4s steps(40,end) forwards, blink 1s infinite; }
+@keyframes typing { from {width:0;} to {width:100%;} }
+@keyframes blink { 50% { border-color: transparent; } }
+
+/* Animations */
+@keyframes fadeUp { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
+
+/* Links */
+.links { display:flex; gap:15px; flex-wrap:wrap; justify-content:flex-start; margin-top:15px; }
+.links a { text-decoration:none; background: rgba(0,0,0,0.3); padding:10px 15px; border-radius:15px; color:white; font-weight:bold; transition:0.3s; }
+.links a:hover { background: turquoise; color:black; transform:scale(1.05); }
+
+/* Responsive */
+@media (max-width: 900px) {
+  section { flex-direction: column; text-align: center; }
+  .text-content { max-width: 90%; }
+  .photo-img { max-width: 80%; }
+}
+</style>
+</head>
+<body>
+
+<!-- Landing Page -->
+<section id="landing">
+  <div class="typewriter">✨ Welcome to Saloni’s World ✨</div>
+</section>
+
+<!-- Navigation -->
+<nav>
+  <a href="#about">About Me</a>
+  <a href="#education">Education</a>
+  <a href="#hobbies">Hobbies</a>
+</nav>
+
+<!-- About Me -->
+<section id="about">
+<div class="top-heading">Hello, Saloni here! 👋</div>
+  <img src="images/WhatsApp Image 2025-09-28 at 5.35.02 PM.jpeg" alt="About Me Photo" class="photo-img">
+
+  <div class="text-content">
+    <h1>About Me 💫</h1>
+    <p>Hello! I’m <strong>Saloni Kumari</strong>, a passionate Computer Science student with a flair for creativity and leadership.  
+    Born in <strong>Kaimur, Bihar</strong>, the land of Maa Mundeshwari, and brought up in <strong>Varanasi</strong>. 💻✨</p>
+
+    <p>I thrive on challenges – coding algorithms, leading projects, or hosting events on stage. Singing, dancing, reading, and exploring new ideas fuel my creativity and bring balance to my life.</p>
+
+    <p>I believe in learning from every experience, embracing challenges with resilience, and growing with every opportunity. Success, for me, is not just a destination – it’s the journey, the lessons, and the impact we create along the way. 🌟</p>
+
+    <div class="links">
+      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/" target="_blank">GitHub</a>
+      <a href="https://codeforces.com/" target="_blank">Codeforces</a>
+      <a href="https://leetcode.com/" target="_blank">LeetCode</a>
+      <a href="tel:7277765052">Phone</a>
+    </div>
+  </div>
+</section>
+
+<!-- Education -->
+<section id="education">
+  <img src="images/WhatsApp Image 2025-09-28 at 5.34.25 PM.jpeg" alt="Education Photo" class="photo-img">
+
+  <div class="text-content">
+    <h1>Education 🎓</h1>
+    <h2>Indian Institute of Information Technology, Manipur</h2>
+    <p><strong>B.Tech in Computer Science & Engineering</strong> (2023 – 2028) - CGPA: 8.44<br>
+    Exploring algorithms, data structures, AI, and software engineering. Preparing for top tech internships.</p>
+
+    <h2>Senior Secondary</h2>
+    <p><strong>Class 12th (Science)</strong> – Crimson World School, Varanasi – 90%<br>
+    Active in cultural fests, clubs, and academics alike.</p>
+
+    <h2>High School</h2>
+    <p><strong>Class 10th</strong> – DAV Public School, Ratwar – 94%<br>
+    Consistent performer with curiosity & passion for learning.</p>
+  </div>
+</section>
+
+<!-- Hobbies -->
+<section id="hobbies">
+  <img src="images/WhatsApp Image 2025-09-28 at 5.28.37 PM.jpeg" alt="Hobbies Photo" class="photo-img">
+
+  <div class="text-content">
+    <h1>Hobbies & Vibes 🎶🏀🎤📚</h1>
+    <p class="quote">“Stage fear isn’t my dish – I always groove on stage!”</p>
+    <p class="quote">“I don’t just play games, I play with passion – from courts to concerts!”</p>
+    <p class="quote">“Hand me a mic, and I’ll own the spotlight 🎙️🔥”</p>
+    <p class="quote">“Books, poetry, and literature refresh my soul and spark my imagination 📖🌟”</p>
+
+    <div class="hobby-list">
+      <div class="hobby">🎤 Singing</div>
+      <div class="hobby">💃 Dancing</div>
+      <div class="hobby">🏀 Basketball</div>
+      <div class="hobby">🏸 Badminton</div>
+      <div class="hobby">🏏 Cricket</div>
+      <div class="hobby">🎙️ Anchoring</div>
+      <div class="hobby">🎭 Hosting Events</div>
+      <div class="hobby">📌 Organizing Shows</div>
+      <div class="hobby">📚 Reading</div>
+      <div class="hobby">✍️ Literature & Poetry</div>
+    </div>
+
+    <div class="links">
+     <a href="https://www.instagram.com/__saloni.jaiswal__?utm_source=qr&igsh=MWp0ZW54a3F1MzZ6Zg==" target="_blank" class="instagram-card">
+  Follow me on Instagram
+</a> 
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
+
